@@ -14,7 +14,8 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 
 | who | target layer | how we know |
 |---|---|---|
-| the paper's prose (L1456) | penultimate | *"The default lens on Sonnet 4.5, used throughout the paper … with z taken at the penultimate layer"* |
+| the paper's main text (L189) | **final** | *"a single d_model × d_model matrix per layer that maps from a source layer ℓ to the final layer L"* |
+| the paper's appendix (L1456) | penultimate | **the lone outlier** — *"The default lens on Sonnet 4.5, used throughout the paper … with z taken at the penultimate layer"* |
 | the paper's pseudocode (L1526) | **final** | `# z[t] : residual stream at the target layer L (by default final)` |
 | the paper's Figure 57 | **both are scored** — and final is the row labelled `(default)` | its ablation grid carries `all tokens (default)` and `all tokens, penultimate` as *separate rows*, so penultimate is a variation *against* the default |
 | `anthropics/jacobian-lens` | **final** | `fitting.py:79` — `target = n_layers - 1 if target_layer is None else target_layer` |
@@ -87,9 +88,14 @@ measured, and we would not assume it transfers in either direction.
 
 ## The near-collision
 
-A fitted lens records no target layer — the library's `save()` writes no such field. The target is
-recoverable by counting stacked Jacobians, but **the count alone is not enough**, because producers
-disagree about whether the stack includes the target itself.
+A fitted lens records no target layer — the library's `save()` writes `J`, `n_prompts`,
+`source_layers` and `d_model`, and no target field. For a **default** fit that is a distinction
+without a difference: `source_layers` defaults to `range(target)`, so `max(source_layers) + 1` is the
+target, and reading it is easier than what follows. It only stops working when a custom source list
+was passed, or when the producer is not using this library at all.
+
+Counting stacked Jacobians works in every case, but **the count alone is not enough**, because
+producers disagree about whether the stack includes the target itself.
 
 Run the checker on two lenses for the same model, one final and one penultimate:
 
@@ -128,9 +134,15 @@ choice, and is not cited above as such; it is the only place a matched pair is p
 Not a code change. Changing the default would silently invalidate the 38 lenses already published,
 which is worse than the problem.
 
-**A docstring.** One line on `fit()` saying the target defaults to the final layer, that the paper's
-ablations use penultimate and score it slightly higher, and that `target_layer=-2` reproduces the
-paper's setup. That ends the divergence for everyone downstream and breaks nothing.
+**Less than this page first claimed.** The docstring largely exists. At the pinned commit,
+`jacobian_for_prompt` already says the target *"Defaults to the final layer"* and even that *"in some
+cases, targeting the penultimate layer can give a better-conditioned `J_l`"* (`fitting.py:124-127`),
+and `fit()` points at it (`249-250`).
+
+What is missing is only the cross-reference to the paper: that one sentence of it says penultimate was
+used throughout, that Figure 57 scores penultimate slightly higher, and that `target_layer=-2`
+reproduces that setup. A clause, not a docstring. It breaks nothing and ends the divergence for
+everyone downstream.
 
 ---
 
@@ -138,10 +150,9 @@ paper's setup. That ends the divergence for everyone downstream and breaks nothi
 
 - **Not a claim that anyone's results are wrong.** The effect on the paper's own metrics is small, and
   no result in any of the cited work has been re-run here.
-- **Not a claim that final is the wrong choice.** It is defensible; it is simply not what the prose
-  describes, and users of supplied lenses cannot currently tell which they have unless they clocked
-  the difference between the default in the code and the penultimate in the prose — which takes
-  reading the library *alongside* the paper, since neither resolves it alone.
+- **Not a claim that final is the wrong choice.** It is defensible, and the library documents it —
+  `fit()` states the default in its API docs, not just in code. It is simply not what one sentence of
+  the paper says, and noticing that the two disagree takes reading both.
 - **Not a Neuronpedia problem.** Their documentation is accurate. See above.
 - **Not measured at small scale.** Everything quantitative here is the paper's Sonnet 4.5 ablation.
 
