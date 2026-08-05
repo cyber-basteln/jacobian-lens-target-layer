@@ -104,9 +104,9 @@ Run the checker on two lenses for the same model, one final and one penultimate.
   `CREDIT.md` credits Anthropic Interpretability. Fitted with the upstream library.
 - **penultimate** —
   [`agu18dec/qwen3.6-27b-pile-jacobians`](https://huggingface.co/agu18dec/qwen3.6-27b-pile-jacobians),
-  `n25-skip4-penultimate/jacobians.safetensors`, by Agam Bhatia — a co-author of the meta-tokens post
-  and part of the replication team above. Fitted with their own pipeline, not the upstream library,
-  which is why the conventions differ.
+  `n25-skip4-penultimate/jacobians.safetensors`, by a co-author of the meta-tokens post and part of
+  the replication team above. Fitted with their own pipeline, not the upstream library, which is why
+  the conventions differ.
 
 ```
 $ python target_layer_of.py neuronpedia/jacobian-lens \
@@ -145,15 +145,14 @@ not evidence of anyone's choice and is not cited above as such.
 Not a code change. Changing the default would silently invalidate the 38 lenses already published,
 which is worse than the problem.
 
-**Less than this page first claimed.** The docstring largely exists. At the pinned commit,
-`jacobian_for_prompt` already says the target *"Defaults to the final layer"* and even that *"in some
-cases, targeting the penultimate layer can give a better-conditioned `J_l`"* (`fitting.py:124-127`),
-and `fit()` points at it (`249-250`).
+The library already documents its own default. `jacobian_for_prompt` says the target *"Defaults to
+the final layer"*, and adds that *"in some cases, targeting the penultimate layer can give a
+better-conditioned `J_l`"* (`fitting.py:124-127`); `fit()` refers to it (`249-250`).
 
-What is missing is only the cross-reference to the paper: that one sentence of it says penultimate was
-used throughout, that Figure 57 scores penultimate slightly higher, and that `target_layer=-2`
-reproduces that setup. A clause, not a docstring. It breaks nothing and ends the divergence for
-everyone downstream.
+**What is missing is the cross-reference to the paper** — that one of its sentences says penultimate
+was used throughout, that Figure 57 scores penultimate slightly higher, and that `target_layer=-2`
+reproduces that setup. One clause. It breaks nothing, and it ends the divergence for everyone
+downstream.
 
 ---
 
