@@ -130,7 +130,9 @@ paper's setup. That ends the divergence for everyone downstream and breaks nothi
 - **Not a claim that anyone's results are wrong.** The effect on the paper's own metrics is small, and
   no result in any of the cited work has been re-run here.
 - **Not a claim that final is the wrong choice.** It is defensible; it is simply not what the prose
-  describes, and users of supplied lenses cannot currently tell which they have unless they clocked the difference between the default in the code and the penultimate in the prose, via reading the source paper very thoroughly first. 
+  describes, and users of supplied lenses cannot currently tell which they have unless they clocked
+  the difference between the default in the code and the penultimate in the prose — which takes
+  reading the library *alongside* the paper, since neither resolves it alone.
 - **Not a Neuronpedia problem.** Their documentation is accurate. See above.
 - **Not measured at small scale.** Everything quantitative here is the paper's Sonnet 4.5 ablation.
 
@@ -161,8 +163,6 @@ Every claim above traces to bytes fetched and parsed directly: the paper's raw H
 PNGs, the library at commit `581d398613e5602a5af361e1c34d3a92ea82ba8e`, the 37 published config
 YAMLs, the lens containers themselves by HTTP range request, and both mirrors of each replication
 writeup. No claim rests on a model-generated summary of a page.
-
-
 
 ---
 
