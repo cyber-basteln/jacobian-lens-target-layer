@@ -164,6 +164,24 @@ PNGs, the library at commit `581d398613e5602a5af361e1c34d3a92ea82ba8e`, the 37 p
 YAMLs, the lens containers themselves by HTTP range request, and both mirrors of each replication
 writeup. No claim rests on a model-generated summary of a page.
 
+### If you check these claims with agents
+
+Worth knowing before you start, because two audit passes here got both of these wrong first:
+
+**Pin the paper.** The line numbers above (`L1456`, `L1526`) are positions in one retrieval of a live
+page, so they are only meaningful against the same bytes. As fetched: md5
+`0db83fcfdf6fe4675c3e4506b9f2ab90`, 417,920 bytes. If yours differs, the page has changed and every
+line number here is void — check the quoted text, not the number.
+
+**Figure 57 is an image.** A fleet built out of `curl`, `grep` and text extraction will report the
+figures as unreadable and then agree with itself that the question is unresolvable in the paper. Ours
+did, twice, and the agreement looked like corroboration. The row labels that settle the default are
+pixels — feed the PNGs to something that can see them.
+
+**Don't let a summary stand in for a source.** A tool that answers a question *about* a page has read
+the page for you and given you its reading. That is fine for finding a URL and not fine for anything a
+claim rests on. Fetch the bytes; parse them yourself.
+
 ---
 
 ## Sources
