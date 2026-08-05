@@ -188,7 +188,7 @@ figures as unreadable and then agree with itself that the question is unresolvab
 did, twice, and the agreement looked like corroboration until the agent reports were read and
 verified by human eyes.
 
-**Don't let a summary stand in for a source.** Don't use summarizers. General advice for free.
+**Don't let a summary stand in for a source.** Don't let them use summarizers. General advice for free.
 
 ---
 
