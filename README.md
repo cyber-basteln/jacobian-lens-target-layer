@@ -1,13 +1,18 @@
 # Which layer is your Jacobian lens fitted to?
 
-It depends...bc there is a divergence. 
+It depends — and worse, it depends on which document you read first.
 
 We found this while building a J-lens fitting pipeline of our own. It is not a critique of anyone's
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
 nobody appears to have written it down. So: here it is, with the checks to verify every claim.
 
-**The paper's prose says one thing. The library's default does another. And some published
-lenses follow the default, not the prose.**
+**The library defaults to the final layer, and every published lens follows it. The paper describes
+the method as mapping to the final layer too, throughout — but says once that its own runs used the
+penultimate one, and the best-known external replication followed that. No lens file records which
+one you are holding.**
+
+Which is why two people can use "the Jacobian lens" and mean different instruments, both correctly
+citing the same paper.
 
 ---
 
@@ -192,7 +197,7 @@ no config at all.
 Every claim above traces to bytes fetched and parsed directly: the paper's raw HTML and its figure
 PNGs, the library at commit `581d398613e5602a5af361e1c34d3a92ea82ba8e`, the 37 published config
 YAMLs, the lens containers themselves by HTTP range request, and both mirrors of each replication
-writeup. And by a human who fell down a rabbit hole unintentionally.  
+writeup. And by a human who fell down a rabbit hole unintentionally.
 
 ### If you check these claims with agents
 
