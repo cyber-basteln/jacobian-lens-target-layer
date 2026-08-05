@@ -53,10 +53,11 @@ inherited cannot be established either way — all that is known is what it meas
 
 **The replicators read the paper and implemented what it said.** Setting a parameter explicitly is
 precisely how you never discover its default: if you pass `target_layer=-2`, the line that would have
-told you otherwise never executes. Two of the three groups did not use the library at all — they wrote
-their own pipelines from the paper's description, so its defaults were never in view.
+told you otherwise never executes. Two of the three groups potentially did not use the library at all — they wrote
+their own pipelines from the paper's description, or chose to change to penultimate while building with the library. 
 
 The defect exists only in the seams between these parties. 
+
 ---
 
 ## What it costs
