@@ -1,7 +1,7 @@
 # Which layer is your Jacobian lens fitted to?
 
-It depends — and it likely depends on which document you read first. The library in the Global
-Workspace layer defaults to the final layer, and most published lenses follow it. The paper however
+It depends — and it likely depends on which document you read first. The library accompanying the
+Global Workspace paper defaults to the final layer, and most published lenses follow it. The paper however
 also mentions and prints its runs that used the penultimate one, and why that might be preferable,
 and the best-known external replication follows the penultimate advice. Which is why two people can
 end up using different lenses as "standard", both ultimately citing the same paper.
