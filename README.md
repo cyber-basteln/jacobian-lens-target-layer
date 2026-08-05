@@ -6,8 +6,7 @@ We found this while building a J-lens fitting pipeline of our own. It is not a c
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
 nobody appears to have written it down. So: here it is, with the checks to verify every claim.
 
-**The paper's prose says one thing. The library's default does another. Every published lens follows
-the default.**
+**The paper's prose says one thing. The library's default does another. And some published lenses follow the default, not the prose.**
 
 ---
 
