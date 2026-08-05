@@ -16,7 +16,7 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 |---|---|---|
 | the paper's prose (L1456) | penultimate | *"The default lens on Sonnet 4.5, used throughout the paper … with z taken at the penultimate layer"* |
 | the paper's pseudocode (L1526) | **final** | `# z[t] : residual stream at the target layer L (by default final)` |
-| the paper's Figure 57 | **final** | its ablation grid lists `all tokens (default)` and `all tokens, penultimate` as *separate rows* |
+| the paper's Figure 57 | **both are scored** — and final is the row labelled `(default)` | its ablation grid carries `all tokens (default)` and `all tokens, penultimate` as *separate rows*, so penultimate is a variation *against* the default |
 | `anthropics/jacobian-lens` | **final** | `fitting.py:79` — `target = n_layers - 1 if target_layer is None else target_layer` |
 | Neuronpedia's 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
 | Neuronpedia's `qwen3.6-27b` | **final** | no config ships; measured from the artifact (63 Jacobians, 64-layer model) |
