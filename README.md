@@ -42,13 +42,11 @@ paper as text does not resolve it.
 This is worth stating plainly, because the table above looks like an accusation and isn't one.
 
 **Neuronpedia's model card is accurate.** It says the lenses were *"trained using Anthropic's Jacobian
-Lens library"* — which is exactly and only what happened. It does not claim to reproduce the paper.
-Every config records the full command, including a `target_layer: null` that anyone could have read.
-In this whole picture, theirs is the description that overclaims least.
+Lens library"* — which is exactly and only what happened. Every config records the full command, including a `target_layer: null` that anyone could have read.
 
 **The target was never chosen.** The recorded commands pass every parameter the operators thought
 about — corpus, prompt count, sequence length, dtype, the entire stopping rule — and `--target_layer`
-is absent from all 37. It fell through to a library default. That is what defaults are for.
+is absent from all 37. It fell through to a library default, which is what defaults are for.
 
 That claim covers the 37 only. The 38th lens ships no config, so whether *its* target was chosen or
 inherited cannot be established either way — all that is known is what it measures to.
@@ -58,9 +56,7 @@ precisely how you never discover its default: if you pass `target_layer=-2`, the
 told you otherwise never executes. Two of the three groups did not use the library at all — they wrote
 their own pipelines from the paper's description, so its defaults were never in view.
 
-The defect exists only in the seams between these parties. There is no step at which someone should
-have caught it, which is why it is still here.
-
+The defect exists only in the seams between these parties. 
 ---
 
 ## What it costs
