@@ -175,12 +175,9 @@ line number here is void — check the quoted text, not the number.
 
 **Figure 57 is an image.** A fleet built out of `curl`, `grep` and text extraction will report the
 figures as unreadable and then agree with itself that the question is unresolvable in the paper. Ours
-did, twice, and the agreement looked like corroboration. The row labels that settle the default are
-pixels — feed the PNGs to something that can see them.
+did, twice, and the agreement looked like corroboration until the agent reports were read and verified by human eyes. 
 
-**Don't let a summary stand in for a source.** A tool that answers a question *about* a page has read
-the page for you and given you its reading. That is fine for finding a URL and not fine for anything a
-claim rests on. Fetch the bytes; parse them yourself.
+**Don't let a summary stand in for a source.** Don't use summarizers. General advice for free. 
 
 ---
 
