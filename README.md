@@ -172,7 +172,7 @@ no config at all.
 Every claim above traces to bytes fetched and parsed directly: the paper's raw HTML and its figure
 PNGs, the library at commit `581d398613e5602a5af361e1c34d3a92ea82ba8e`, the 37 published config
 YAMLs, the lens containers themselves by HTTP range request, and both mirrors of each replication
-writeup. No claim rests on a model-generated summary of a page.
+writeup. And by a human who fell down a rabbit hole unintentionally.  
 
 ### If you check these claims with agents
 
