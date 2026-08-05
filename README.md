@@ -1,6 +1,6 @@
 # Which layer is your Jacobian lens fitted to?
 
-Probably not the one you think, and the answer depends on whether you read the paper or ran the code.
+It depends...bc there is a divergence. 
 
 We found this while building a J-lens fitting pipeline of our own. It is not a critique of anyone's
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
