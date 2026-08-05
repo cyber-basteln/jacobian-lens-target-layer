@@ -6,7 +6,8 @@ We found this while building a J-lens fitting pipeline of our own. It is not a c
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
 nobody appears to have written it down. So: here it is, with the checks to verify every claim.
 
-**Everyone who read the paper built penultimate. Everyone who ran the code got final.**
+**The paper's prose says one thing. The library's default does another. Every published lens follows
+the default.**
 
 ---
 
@@ -21,11 +22,12 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 | the published lens family, 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
 | the 38th lens, `qwen3.6-27b` — fitted by the paper's authors, not by the host | **final** | no config ships; `CREDIT.md` credits Anthropic Interpretability. Measured from the artifact: 63 Jacobians on a 64-layer model |
 | Nanda's replication | penultimate | *"by taking Jacobians to the penultimate layer on twenty-five prompts from the Pile"* |
-| the meta-tokens replication | penultimate | same lens, same wording |
-| `agu18dec/qwen3.6-27b-pile-jacobians` | penultimate | `target_block: 62` embedded in the safetensors header |
+| the meta-tokens post, by the same team | penultimate | same lens, same wording — *not* independent confirmation |
 
-Three independent groups reimplemented the method from the paper's prose and all three chose
-penultimate. One party ran the shipped library and got final, thirty-seven times.
+**One replication team** read the prose and fitted penultimate — the review, the meta-tokens
+post, and the lenses published on Hugging Face are all that same effort, not three
+confirmations of each other. Everything downstream of the library's default is final, thirty-
+seven times.
 
 **Figure 57 settles which is the paper's actual default.** Penultimate appears there as a named
 variation *against* the default, so the default is final and the L1456 prose sentence is simply an
@@ -114,6 +116,11 @@ includes it as an identity anchor. Same count, same index range, opposite answer
 
 Two ways to tell them apart: read the producer's embedded metadata if there is any, or check whether
 the last slot is the identity matrix — it is under the second convention and is not under the first.
+
+The second repository above is a useful reference point because it publishes **both** variants side
+by side — `n25-skip0-final/` and `n25-skip4-penultimate/` — and records every construction parameter
+in the safetensors header rather than losing them at save time. It is not evidence of anyone's
+choice, and is not cited above as such; it is the only place a matched pair is public.
 
 ---
 
