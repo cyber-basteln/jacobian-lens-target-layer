@@ -21,7 +21,7 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 | the paper's pseudocode (L1526) | **final** | `# z[t] : residual stream at the target layer L (by default final)` |
 | the paper's Figure 57 | **both are scored** — and final is the row labelled `(default)` | its ablation grid carries `all tokens (default)` and `all tokens, penultimate` as *separate rows*, so penultimate is a variation *against* the default |
 | `anthropics/jacobian-lens` | **final** | `fitting.py:79` — `target = n_layers - 1 if target_layer is None else target_layer` |
-| the published lens family, 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
+| the neuronpedia published lens family, 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
 | the 38th lens, `qwen3.6-27b` — fitted by the paper's authors, not by the host | **final** | no config ships; `CREDIT.md` credits Anthropic Interpretability. Measured from the artifact: 63 Jacobians on a 64-layer model |
 | Nanda's replication | penultimate | *"by taking Jacobians to the penultimate layer on twenty-five prompts from the Pile"* |
 | the meta-tokens post, by the same team | penultimate | same lens, same wording — *not* independent confirmation |
