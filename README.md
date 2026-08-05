@@ -1,18 +1,14 @@
 # Which layer is your Jacobian lens fitted to?
 
-It depends — and worse, it depends on which document you read first.
+It depends — and it likely depends on which document you read first. The library in the Global
+Workspace layer defaults to the final layer, and most published lenses follow it. The paper however
+also mentions and prints its runs that used the penultimate one, and why that might be preferable,
+and the best-known external replication follows the penultimate advice. Which is why two people can
+end up using different lenses as "standard", both ultimately citing the same paper.
 
 We found this while building a J-lens fitting pipeline of our own. It is not a critique of anyone's
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
 nobody appears to have written it down. So: here it is, with the checks to verify every claim.
-
-**The library defaults to the final layer, and every published lens follows it. The paper describes
-the method as mapping to the final layer too, throughout — but says once that its own runs used the
-penultimate one, and the best-known external replication followed that. No lens file records which
-one you are holding.**
-
-Which is why two people can use "the Jacobian lens" and mean different instruments, both correctly
-citing the same paper.
 
 ---
 
