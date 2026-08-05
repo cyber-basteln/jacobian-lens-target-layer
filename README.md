@@ -25,10 +25,9 @@ lenses follow the default, not the prose.**
 | Nanda's replication | penultimate | *"by taking Jacobians to the penultimate layer on twenty-five prompts from the Pile"* |
 | the meta-tokens post, by the same team | penultimate | same lens, same wording — *not* independent confirmation |
 
-**One replication team** read the prose and fitted penultimate — the review, the meta-tokens
-post, and the lenses published on Hugging Face are all that same effort, not three
-confirmations of each other. Everything downstream of the library's default is final, thirty-
-seven times.
+**One replication team** read the prose and fitted penultimate — the review, the meta-tokens post,
+and that team's own lens uploads are all the same effort, not three confirmations of each other.
+Everything downstream of the library's default is final, thirty-seven times.
 
 **Figure 57 settles which is the paper's actual default.** Penultimate appears there as a named
 variation *against* the default, so the default is final and the L1456 prose sentence is simply an
