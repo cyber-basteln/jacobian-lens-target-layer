@@ -4,7 +4,7 @@ It depends — and it likely depends on which document you read first. The libra
 Global Workspace paper defaults to the final layer, and most published lenses follow it. The paper however
 also mentions and prints its runs that used the penultimate one, and why that might be preferable,
 and the best-known external replication follows the penultimate advice. Which is why two people can
-end up using different lenses as "standard", both ultimately citing the same paper.
+end up using different lenses not knowing they are doing so, both ultimately citing the same paper.
 
 We found this while building a J-lens fitting pipeline of our own. It is not a critique of anyone's
 results, and as far as we can tell it changes very little — but it is real, it is undocumented, and
