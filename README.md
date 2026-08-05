@@ -97,7 +97,16 @@ was passed, or when the producer is not using this library at all.
 Counting stacked Jacobians works in every case, but **the count alone is not enough**, because
 producers disagree about whether the stack includes the target itself.
 
-Run the checker on two lenses for the same model, one final and one penultimate:
+Run the checker on two lenses for the same model, one final and one penultimate. Both are public:
+
+- **final** — [`neuronpedia/jacobian-lens`](https://huggingface.co/neuronpedia/jacobian-lens),
+  `qwen3.6-27b/jlens/Salesforce-wikitext/Qwen3.6-27B_jacobian_lens_n1000.pt`. Hosted by Neuronpedia;
+  `CREDIT.md` credits Anthropic Interpretability. Fitted with the upstream library.
+- **penultimate** —
+  [`agu18dec/qwen3.6-27b-pile-jacobians`](https://huggingface.co/agu18dec/qwen3.6-27b-pile-jacobians),
+  `n25-skip4-penultimate/jacobians.safetensors`, by Agam Bhatia — a co-author of the meta-tokens post
+  and part of the replication team above. Fitted with their own pipeline, not the upstream library,
+  which is why the conventions differ.
 
 ```
 $ python target_layer_of.py neuronpedia/jacobian-lens \
@@ -122,10 +131,12 @@ includes it as an identity anchor. Same count, same index range, opposite answer
 Two ways to tell them apart: read the producer's embedded metadata if there is any, or check whether
 the last slot is the identity matrix — it is under the second convention and is not under the first.
 
-The second repository above is a useful reference point because it publishes **both** variants side
-by side — `n25-skip0-final/` and `n25-skip4-penultimate/` — and records every construction parameter
-in the safetensors header rather than losing them at save time. It is not evidence of anyone's
-choice, and is not cited above as such; it is the only place a matched pair is public.
+Credit where it is load-bearing: this comparison is only possible because the second repository
+publishes **both** variants side by side — `n25-skip0-final/` and `n25-skip4-penultimate/` — and
+records every construction parameter in the safetensors header (`target_block`, `skip_first`,
+`n_prompts`, `dataset_id`, `t_max`, `git_commit`) rather than losing them at save time. It is the
+only public matched pair, and the only producer here whose parameters survive inside the file. It is
+not evidence of anyone's choice and is not cited above as such.
 
 ---
 
