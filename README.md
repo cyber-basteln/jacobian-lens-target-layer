@@ -132,28 +132,10 @@ includes it as an identity anchor. Same count, same index range, opposite answer
 Two ways to tell them apart: read the producer's embedded metadata if there is any, or check whether
 the last slot is the identity matrix — it is under the second convention and is not under the first.
 
-Credit where it is load-bearing: this comparison is only possible because the second repository
+This comparison is only possible to show in a repository because the second repository
 publishes **both** variants side by side — `n25-skip0-final/` and `n25-skip4-penultimate/` — and
 records every construction parameter in the safetensors header (`target_block`, `skip_first`,
-`n_prompts`, `dataset_id`, `t_max`, `git_commit`) rather than losing them at save time. It is the
-only public matched pair, and the only producer here whose parameters survive inside the file. It is
-not evidence of anyone's choice and is not cited above as such.
-
----
-
-## What would fix it
-
-Not a code change. Changing the default would silently invalidate the 38 lenses already published,
-which is worse than the problem.
-
-The library already documents its own default. `jacobian_for_prompt` says the target *"Defaults to
-the final layer"*, and adds that *"in some cases, targeting the penultimate layer can give a
-better-conditioned `J_l`"* (`fitting.py:124-127`); `fit()` refers to it (`249-250`).
-
-**What is missing is the cross-reference to the paper** — that one of its sentences says penultimate
-was used throughout, that Figure 57 scores penultimate slightly higher, and that `target_layer=-2`
-reproduces that setup. One clause. It breaks nothing, and it ends the divergence for everyone
-downstream.
+`n_prompts`, `dataset_id`, `t_max`, `git_commit`) rather than losing them at save time. It seems the only public matched pair, and the only producer here whose parameters survive inside the file. 
 
 ---
 
