@@ -18,8 +18,8 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 | the paper's pseudocode (L1526) | **final** | `# z[t] : residual stream at the target layer L (by default final)` |
 | the paper's Figure 57 | **both are scored** — and final is the row labelled `(default)` | its ablation grid carries `all tokens (default)` and `all tokens, penultimate` as *separate rows*, so penultimate is a variation *against* the default |
 | `anthropics/jacobian-lens` | **final** | `fitting.py:79` — `target = n_layers - 1 if target_layer is None else target_layer` |
-| Neuronpedia's 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
-| Neuronpedia's `qwen3.6-27b` | **final** | no config ships; measured from the artifact (63 Jacobians, 64-layer model) |
+| the published lens family, 37 configs | **final** | `target_layer: null` in 37/37, and `--target_layer` appears in 0/37 recorded commands |
+| the 38th lens, `qwen3.6-27b` — fitted by the paper's authors, not by the host | **final** | no config ships; `CREDIT.md` credits Anthropic Interpretability. Measured from the artifact: 63 Jacobians on a 64-layer model |
 | Nanda's replication | penultimate | *"by taking Jacobians to the penultimate layer on twenty-five prompts from the Pile"* |
 | the meta-tokens replication | penultimate | same lens, same wording |
 | `agu18dec/qwen3.6-27b-pile-jacobians` | penultimate | `target_block: 62` embedded in the safetensors header |
@@ -46,6 +46,9 @@ In this whole picture, theirs is the description that overclaims least.
 **The target was never chosen.** The recorded commands pass every parameter the operators thought
 about — corpus, prompt count, sequence length, dtype, the entire stopping rule — and `--target_layer`
 is absent from all 37. It fell through to a library default. That is what defaults are for.
+
+That claim covers the 37 only. The 38th lens ships no config, so whether *its* target was chosen or
+inherited cannot be established either way — all that is known is what it measures to.
 
 **The replicators read the paper and implemented what it said.** Setting a parameter explicitly is
 precisely how you never discover its default: if you pass `target_layer=-2`, the line that would have
@@ -166,7 +169,7 @@ writeup. No claim rests on a model-generated summary of a page.
 
 ### If you check these claims with agents
 
-Worth knowing before you start, because two audit passes here got both of these wrong first:
+Worth knowing before you start, because two audit passes here got the first two of these wrong:
 
 **Pin the paper.** The line numbers above (`L1456`, `L1526`) are positions in one retrieval of a live
 page, so they are only meaningful against the same bytes. As fetched: md5
@@ -175,9 +178,10 @@ line number here is void — check the quoted text, not the number.
 
 **Figure 57 is an image.** A fleet built out of `curl`, `grep` and text extraction will report the
 figures as unreadable and then agree with itself that the question is unresolvable in the paper. Ours
-did, twice, and the agreement looked like corroboration until the agent reports were read and verified by human eyes. 
+did, twice, and the agreement looked like corroboration until the agent reports were read and
+verified by human eyes.
 
-**Don't let a summary stand in for a source.** Don't use summarizers. General advice for free. 
+**Don't let a summary stand in for a source.** Don't use summarizers. General advice for free.
 
 ---
 
