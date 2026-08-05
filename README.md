@@ -16,7 +16,7 @@ lenses follow the default, not the prose.**
 | who | target layer | how we know |
 |---|---|---|
 | the paper's main text (L189) | **final** | *"a single d_model × d_model matrix per layer that maps from a source layer ℓ to the final layer L"* |
-| the paper's appendix (L1456) | penultimate | **the lone outlier** — *"The default lens on Sonnet 4.5, used throughout the paper … with z taken at the penultimate layer"* |
+| the paper's ablations section (L1456, L1464) | penultimate *(both final and penultimate measured, penultimate seemingly preferable)* | *"The default lens on Sonnet 4.5, used throughout the paper … with z taken at the penultimate layer"*, and the reason given: *"We experimented with computing partial derivatives of the final-layer residual stream or the penultimate-layer residual stream … We observed that including the last layer can sometimes increase the number of noisy artifacts in lens-readouts. This may be because the final block is heavily specialized for calibrating next token predictions and contains less semantic content."* |
 | the paper's pseudocode (L1526) | **final** | `# z[t] : residual stream at the target layer L (by default final)` |
 | the paper's Figure 57 | **both are scored** — and final is the row labelled `(default)` | its ablation grid carries `all tokens (default)` and `all tokens, penultimate` as *separate rows*, so penultimate is a variation *against* the default |
 | `anthropics/jacobian-lens` | **final** | `fitting.py:79` — `target = n_layers - 1 if target_layer is None else target_layer` |
