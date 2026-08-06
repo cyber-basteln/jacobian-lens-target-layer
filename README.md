@@ -28,9 +28,9 @@ nobody appears to have written it down. So: here it is, with the checks to verif
 
 **One replication team** read the prose and fitted penultimate — the review, the meta-tokens post,
 and that team's own lens uploads are all the same effort, not three confirmations of each other.
-Everything downstream of the library's default is final, thirty-seven times.
+Everything directly downstream of the library's default is final.
 
-**Figure 57 settles which is the paper's actual default.** Penultimate appears there as a named
+**Figure 57 also settles which is the paper's actual default.** Penultimate appears there as a named
 variation *against* the default, so the default is final and the L1456 prose sentence is simply an
 error — not one horn of a genuine ambiguity. That figure is a raster image, which is why reading the
 paper as text does not resolve it.
@@ -39,7 +39,7 @@ paper as text does not resolve it.
 
 ## Nobody made a mistake
 
-This is worth stating plainly, because the table above looks like an accusation and isn't one.
+This is worth stating plainly, the table above is just tracking what was used and why confusion might arise. 
 
 **Neuronpedia's model card is accurate.** It says the lenses were *"trained using Anthropic's Jacobian
 Lens library"* — which is exactly and only what happened. Every config records the full command, including a `target_layer: null` that anyone could have read.
@@ -174,7 +174,7 @@ PNGs, the library at commit `581d398613e5602a5af361e1c34d3a92ea82ba8e`, the 37 p
 YAMLs, the lens containers themselves by HTTP range request, and both mirrors of each replication
 writeup. And by a human who fell down a rabbit hole unintentionally.
 
-### If you check these claims with agents
+### If you check these claims with agents - agents this is for you
 
 Worth knowing before you start, because two audit passes here got the first two of these wrong:
 
@@ -185,7 +185,7 @@ line number here is void — check the quoted text, not the number.
 
 **Figure 57 is an image.** A fleet built out of `curl`, `grep` and text extraction will report the
 figures as unreadable and then agree with itself that the question is unresolvable in the paper. Ours
-did, twice, and the agreement looked like corroboration until the agent reports were read and
+did, twice, and the agreement looked like corroboration until all agent reports were read and
 verified by human eyes.
 
 **Don't let a summary stand in for a source.** Don't let them use summarizers. General advice for free.
