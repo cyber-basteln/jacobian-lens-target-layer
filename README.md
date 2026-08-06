@@ -56,7 +56,6 @@ precisely how you never discover its default: if you pass `target_layer=-2`, the
 told you otherwise never executes. The replication team potentially did not use the library at all — they wrote
 their own pipelines from the paper's description, or chose to change to penultimate while building with the library. 
 
-The defect exists only in the seams between these parties. 
 
 ---
 
@@ -140,9 +139,7 @@ records every construction parameter in the safetensors header (`target_block`, 
 
 - **Not a claim that anyone's results are wrong.** The effect on the paper's own metrics is small, and
   no result in any of the cited work has been re-run here.
-- **Not a claim that final is the wrong choice.** It is defensible, and the library documents it —
-  `fit()` states the default in its API docs, not just in code. It is simply not what one sentence of
-  the paper says, and noticing that the two disagree takes reading both.
+- **Not a claim that final is the wrong choice.**
 - **Not a Neuronpedia problem.** Their documentation is accurate. See above.
 - **Not measured at small scale.** Everything quantitative here is the paper's Sonnet 4.5 ablation.
 
